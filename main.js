@@ -2,6 +2,7 @@ import "./joint/node_modules/jquery/dist/jquery.js";
 import "./joint/node_modules/lodash/lodash.js";
 import "./joint/node_modules/backbone/backbone.js";
 import "./joint/dist/joint.js";
+import * as graph from "./visualize.js";
 
 // TASK 1
 
@@ -33,3 +34,27 @@ console.log(`Input: height = ${ex3}`);
 console.log(`Output: ${trap(ex3)}`);
 
 
+// TASK 2
+
+const generate = () =>
+{
+    const height = Array(_.random(20) + 3).fill(null).map(() => _.random(10));
+    const maxHeight = Math.max(...height);
+    const water = getTrappedWater(height);
+
+    graph.clearCanvas();
+    graph.prepareAxis(height.length, maxHeight);
+    height.forEach((v, i) => {
+        graph.addElevation(i, v, maxHeight);
+        graph.addWater(i, water[i], maxHeight - v);
+    });
+}
+
+// add 'Generate' button to DOM
+const generateBtn = document.createElement('button');
+generateBtn.type = 'button';
+generateBtn.innerHTML = 'Generate'
+generateBtn.addEventListener('click', generate);
+document.body.prepend(generateBtn);
+
+generate();
