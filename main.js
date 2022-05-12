@@ -1,7 +1,7 @@
-import "./joint/node_modules/jquery/dist/jquery.js";
-import "./joint/node_modules/lodash/lodash.js";
-import "./joint/node_modules/backbone/backbone.js";
-import "./joint/dist/joint.js";
+import "./node_modules/jquery/dist/jquery.js";
+import "./node_modules/lodash/lodash.js";
+import "./node_modules/backbone/backbone.js";
+import "./node_modules/jointjs/dist/joint.js";
 import * as graph from "./visualize.js";
 
 // TASK 1
